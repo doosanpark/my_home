@@ -1,24 +1,28 @@
-import React from  'react';
+import React from 'react';
 
 function Login(){
+
     return (
-        <div className={"formLayout"} style={{ alignItems: "center"}}>
-            <h4>우리집 가격이 궁금할 때는?</h4>
-            <h1>우리집</h1>
 
-                <img src="/images/home.jpg"></img>
-
-            <div>이미 계정이 있으신가요?</div>
-            <button>가입하기</button>
-
-
-            <style>
-
-
-            </style>
+        <div>
+            <div>
+                <h5>핸드폰 번호</h5>
+                <input placeholder={"핸드폰 번호를 입력해주세요"}></input>
+            </div>
+            <div>
+                <h5>비밀번호</h5>
+                <input placeholder={"비밀번호를 입력해주세요"}></input>
+            </div>
+            <span><a>비밀번호 찾기</a></span>
+            <div>
+                <button>로그인</button>
+            </div>
+            <div>
+                <button>비밀번호</button>
+            </div>
         </div>
-        
-    )
+
+    );
 
 }
 

@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Login from './login'
+import Home from './home'
 
-export default function Home() {
+export default function index() {
   return (
     <div className="container">
       <Head>
@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Login></Login>
+        <Home></Home>
       </main>
 
       <footer>
