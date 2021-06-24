@@ -21,9 +21,15 @@ function Login(){
                 <button>비밀번호</button>
             </div>
         </div>
-
     );
-
 }
 
 export default Login;
+
+export async function getServerSideProps(context){
+
+    return{
+
+    }
+
+}
