@@ -1,4 +1,5 @@
 import React from "react";
+import '/styles/search.module.css';
 
 function HomeList() {
   const homeListRender = () => {
@@ -25,7 +26,7 @@ function HomeList() {
   };
 
   return (
-    <>
+    <div className={"container"}>
       <div>
         <div
           style={styles.topContainer}
@@ -46,7 +47,7 @@ function HomeList() {
         </div>
       </div>
       {homeListRender()}
-    </>
+    </div>
   );
 }
 
