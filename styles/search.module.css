@@ -1,0 +1,17 @@
+
+.bodyContainer {
+    height: calc(100% - 100px);
+}
+
+.mainButton {
+    padding: 10px 70px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subButton {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}

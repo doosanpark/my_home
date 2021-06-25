@@ -1,6 +1,12 @@
 import React from "react";
+import Link from "next/link";
+import { useRouter } from 'next/router'
+import searchStyles from "/styles/search.module.css";
 
 function HomeList() {
+  const router = useRouter();
+  const { searchKeyword } = router.query;
+
   const homeListRender = () => {
     const result = [];
     for (let i = 1; i <= 5; i++) {
@@ -25,7 +31,7 @@ function HomeList() {
   };
 
   return (
-    <>
+    <div className={"container"}>
       <div>
         <div
           style={styles.topContainer}
@@ -41,12 +47,22 @@ function HomeList() {
         </div>
       </div>
       <div>
-        <div style={{ fontSize: "16px" }} class="">
+        <div style={{ fontSize: "16px" }} className="">
           {"등록된 매물이 인증을 기다리고 있습니다"}
         </div>
       </div>
+      <div style={{marginTop: "10px"}}>
+        <div style={{ fontSize: "16px" }} className="">
+          {`${searchKeyword != null ? decodeURIComponent(searchKeyword) : ''}에 대한 검색결과`}
+        </div>
+      </div>
       {homeListRender()}
-    </>
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <Link href={`/search/searchMain`}>
+          <button className={searchStyles.mainButton}>{"검색 화면으로 이동"}</button>
+        </Link>
+      </div>
+    </div>
   );
 }
 
