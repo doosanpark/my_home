@@ -1,4 +1,8 @@
 
+.bodyContainer {
+    height: calc(100% - 100px);
+}
+
 .mainButton {
     padding: 10px 70px;
     background-color: white;
