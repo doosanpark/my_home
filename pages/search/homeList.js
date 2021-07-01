@@ -27,7 +27,7 @@ function HomeList() {
       for (let i = 0; i < list.length; i++) {
         console.log(list[i]);
         result.push(
-          <div style={styles.listContainer} onClick={() => {location.href = list[i].url}}>
+          <div style={styles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
             <div style={styles.imageContainer}>
               <div style={styles.centerAlign}>
                 <img src={"/images/home.jpg"} style={{ width: "100px" }} />
