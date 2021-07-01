@@ -1,34 +1,55 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import searchStyles from "/styles/search.module.css";
+import axios from 'axios';
 
 function HomeList() {
   const router = useRouter();
   const { searchKeyword } = router.query;
+  const [ homeListJsx, setHomeListJsx ] = useState(<></>);
 
   const homeListRender = () => {
+    if(searchKeyword == null || searchKeyword == '')
+      return <></>;
     const result = [];
-    for (let i = 1; i <= 5; i++) {
-      result.push(
-        <div style={styles.listContainer}>
-          <div style={styles.imageContainer}>
-            <div style={styles.centerAlign}>
-              <img src={"/images/home.jpg"} style={{ width: "100px" }} />
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/api/search/list',
+      data: {
+        keyword: searchKeyword
+      }
+    }).then((response) => {
+      console.log(response.data);
+      let list = response.data.searchList;
+      if (list.length == 0) return;
+      console.log(list);
+      for (let i = 0; i < list.length; i++) {
+        console.log(list[i]);
+        result.push(
+          <div style={styles.listContainer} onClick={() => {location.href = list[i].url}}>
+            <div style={styles.imageContainer}>
+              <div style={styles.centerAlign}>
+                <img src={"/images/home.jpg"} style={{ width: "100px" }} />
+              </div>
+            </div>
+            <div style={styles.contentContainer}>
+              <div style={{ fontSize: "20px", fontWeight: "bold" }}>
+                {`${list[i].name}`}
+              </div>
+              <div>{`집 목록 ${list[i].id} 설명 1`}</div>
+              <div>{`집 목록 ${list[i].id} 설명 2`}</div>
             </div>
           </div>
-          <div style={styles.contentContainer}>
-            <div style={{ fontSize: "20px", fontWeight: "bold" }}>
-              {`집 목록 ${i}`}
-            </div>
-            <div>{`집 목록 ${i} 설명 1`}</div>
-            <div>{`집 목록 ${i} 설명 2`}</div>
-          </div>
-        </div>
-      );
-    }
-    return result;
+        );
+      }
+      setHomeListJsx(result);
+    });   
   };
+
+  useEffect(() => {
+    homeListRender();
+  }, [searchKeyword])
 
   return (
     <div className={"container"}>
@@ -56,7 +77,7 @@ function HomeList() {
           {`${searchKeyword != null ? decodeURIComponent(searchKeyword) : ''}에 대한 검색결과`}
         </div>
       </div>
-      {homeListRender()}
+      {homeListJsx}
       <div style={{ marginTop: "20px", textAlign: "center" }}>
         <Link href={`/search/searchMain`}>
           <button className={searchStyles.mainButton}>{"검색 화면으로 이동"}</button>
