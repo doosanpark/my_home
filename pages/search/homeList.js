@@ -27,13 +27,13 @@ function HomeList() {
       for (let i = 0; i < list.length; i++) {
         console.log(list[i]);
         result.push(
-          <div style={styles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
-            <div style={styles.imageContainer}>
-              <div style={styles.centerAlign}>
+          <div style={innerStyles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
+            <div style={innerStyles.imageContainer}>
+              <div style={innerStyles.centerAlign}>
                 <img src={"/images/home.jpg"} style={{ width: "100px" }} />
               </div>
             </div>
-            <div style={styles.contentContainer}>
+            <div style={innerStyles.contentContainer}>
               <div style={{ fontSize: "20px", fontWeight: "bold" }}>
                 {`${list[i].name}`}
               </div>
@@ -55,7 +55,7 @@ function HomeList() {
     <div className={"container"}>
       <div>
         <div
-          style={styles.topContainer}
+          style={innerStyles.topContainer}
         >
           {"얼마집 가이드 보기"}
         </div>
@@ -80,14 +80,14 @@ function HomeList() {
       {homeListJsx}
       <div style={{ marginTop: "20px", textAlign: "center" }}>
         <Link href={`/search/searchMain`}>
-          <button className={searchStyles.mainButton}>{"검색 화면으로 이동"}</button>
+          <button className={`btn btn-secondary`}>{"검색 화면으로 이동"}</button>
         </Link>
       </div>
     </div>
   );
 }
 
-const styles = {
+const innerStyles = {
   topContainer: {
     fontSize: "16px",
     color: "rgb(255, 255, 255)",
