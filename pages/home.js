@@ -6,18 +6,18 @@ import classNames from "classnames";
 function Home(){
     const router = useRouter();
     return (
-        <div style={{ alignItems: "center"}}>
+        <div className="baseFormat">
             <h4>우리집 가격이 궁금할 때는?</h4>
             <h1>우리집</h1>
-
-                <img src="/images/home.jpg"></img>
-
+            <div className={styles.imageArea}>
+                <img src="/images/home.jpg"/>
+            </div>
             <div>
                 <Link href="/login">
                 <a>이미 계정이 있으신가요?</a>
                 </Link>
             </div>
-            <button className={classNames({[styles.btn]: true}, {[styles.hi]: true})}>가입하기</button>
+            <button className={classNames({["btnDefault"]: true}, {[styles.hi]: true})}>가입하기</button>
 
         </div>
         
