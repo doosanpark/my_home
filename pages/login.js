@@ -27,7 +27,7 @@ function Login(){
 export default Login;
 
 export async function getServerSideProps(context){
-
+ 
     return{
         props: {}
     }
