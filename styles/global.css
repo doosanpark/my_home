@@ -1,18 +1,23 @@
 .container {
     width: 500px;
     height: 700px;
-    max-height: 100%;
     margin: 0 auto;
 }
 
 .baseFormat{
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: space-around;
 }
 
+.inputDefault {
+    width: 100%;
+    margin: 10px;
+}
 
 .btnDefault {
     width: 100%;
