@@ -24,24 +24,31 @@ function HomeList() {
       let list = response.data.searchList;
       if (list.length == 0) return;
       console.log(list);
+      let liItem = null;
       for (let i = 0; i < list.length; i++) {
         console.log(list[i]);
-        result.push(
-          <div style={innerStyles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
-            <div style={innerStyles.imageContainer}>
-              <div style={innerStyles.centerAlign}>
-                <img src={"/images/home.jpg"} style={{ width: "100px" }} />
+        if(i % 3 == 0)
+          liItem = []
+        liItem.push(
+          <li className={["list-group-item", "col-4"].join(" ")}>
+            <div className={"text-center"} style={innerStyles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
+              <div>
+                <div>
+                  <img src={"/images/home.jpg"} style={{ width: "100px" }} />
+                </div>
+              </div>
+              <div style={innerStyles.contentContainer}>
+                <div style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  {`${list[i].name}`}
+                </div>
+                <div>{`집 목록 ${list[i].id} 설명 1`}</div>
+                <div>{`집 목록 ${list[i].id} 설명 2`}</div>
               </div>
             </div>
-            <div style={innerStyles.contentContainer}>
-              <div style={{ fontSize: "20px", fontWeight: "bold" }}>
-                {`${list[i].name}`}
-              </div>
-              <div>{`집 목록 ${list[i].id} 설명 1`}</div>
-              <div>{`집 목록 ${list[i].id} 설명 2`}</div>
-            </div>
-          </div>
+          </li>
         );
+        if(i % 3 == 2 || i == list.length - 1)
+            result.push(<ul className={["list-group", "list-group-horizontal"].join(" ")}>{liItem}</ul>);
       }
       setHomeListJsx(result);
     });   
@@ -52,7 +59,7 @@ function HomeList() {
   }, [searchKeyword])
 
   return (
-    <div className={"container"}>
+    <div className={["container", "mt-5"].join(" ")}>
       <div>
         <div
           style={innerStyles.topContainer}
@@ -79,8 +86,8 @@ function HomeList() {
       </div>
       {homeListJsx}
       <div style={{ marginTop: "20px", textAlign: "center" }}>
-        <Link href={`/search/searchMain`}>
-          <button className={`btn btn-secondary`}>{"검색 화면으로 이동"}</button>
+        <Link href={"/search/searchMain"}>
+          <button className={["btn", "btn-secondary"].join(" ")}>{"검색 화면으로 이동"}</button>
         </Link>
       </div>
     </div>

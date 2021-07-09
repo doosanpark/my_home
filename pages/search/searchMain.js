@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import {useRouter} from 'next/router';
-import styles from "/styles/search.module.css";
+import searchStyles from "/styles/search.module.css";
 
 function HomeList() {
 
@@ -19,28 +19,28 @@ function HomeList() {
 
   return (
     <div className={"container"}>
-      <div className={styles.bodyContainer}>
+      <div className={searchStyles.bodyContainer}>
         <div>
           <div
-            style={{ fontSize: "18px", fontWeight: "bold", marginTop: "80px" }}
+            style={{ fontSize: "24px", fontWeight: "bold", marginTop: "80px" }}
           >
             {"믿을 만한 중개사가 알려주는"}
           </div>
         </div>
         <div>
-          <div style={{ fontSize: "18px", fontWeight: "bold" }}>
+          <div style={{ fontSize: "24px", fontWeight: "bold" }}>
             {"지금 "}
             <span style={{ color: "rgb(22, 160, 133)" }}>
               {"우리 아파트 시세"}
             </span>
           </div>
         </div>
-        <div style={{ marginTop: "20px" }}>
-          <div>{"아파트 명을 입력해보세요"}</div>
-          <div>
+        <div className={"mt-5"}>
+          <div className={"fs-5"}>{"아파트 명을 입력해보세요"}</div>
+          <div className={["input-group", "input-group-lg"].join(" ")}>
             <input
+              className={"form-control"}
               type={"text"}
-              style={{ height: "30px", width: "100%" }}
               placeholder={"ex) 00동 00아파트"}
               onChange={async (e) => {
                 const { value } = e.currentTarget
@@ -50,17 +50,17 @@ function HomeList() {
           </div>
         </div>
         <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <button className={styles.mainButton} onClick={fnSearch}>{"다음"}</button>
+          <button className={["btn", "btn-primary", "btn-lg"].join(" ")} onClick={fnSearch}>{"검색"}</button>
         </div>
       </div>
-      <div style={{ textAlign: "center" }}>
-        <button className={styles.subButton} style={{ marginRight: 10 }}>
+      <div className={["text-center"].join(" ")}>
+        <button className={["btn", "btn-secondary", "me-2"].join(" ")}>
           {"우리집"}
         </button>
-        <button className={styles.subButton} style={{ marginRight: 10 }}>
+        <button className={["btn", "btn-secondary", "me-2"].join(" ")}>
           {"우리집 내놓기"}
         </button>
-        <button className={styles.subButton}>{"내정보"}</button>
+        <button className={["btn", "btn-secondary"].join(" ")}>{"내정보"}</button>
       </div>
     </div>
   );
