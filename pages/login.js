@@ -20,7 +20,14 @@ function Login(){
                 telInfo: telInfo
                 , passInfo: passInfo
             }
-          }).then(res => { console.log("res", res)})
+          }).then(res => { 
+            console.log("res", res);
+            console.log("res", res.result);
+            if(res.data.result > 0){
+                alert("로그인되었습니다. 상윤이형 감사합니다.");
+            }
+
+          })
         
     }
 
