@@ -6,7 +6,7 @@ import classNames from "classnames";
 function Home(){
     const router = useRouter();
     return (
-        <div className="container baseFormat">
+        <div className=" baseFormat">
             <h4>우리집 가격이 궁금할 때는?</h4>
             <h1>우리집</h1>
             <div className={styles.imageArea}>
