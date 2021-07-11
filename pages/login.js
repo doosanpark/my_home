@@ -19,7 +19,7 @@ function Login(){
             data: {
                 telInfo: telInfo
                 , passInfo: passInfo
-            }
+            } 
           }).then(res => { 
             console.log("res", res);
             console.log("res", res.result);
