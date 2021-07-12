@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import {useRouter} from 'next/router';
 
 function Login(){
 
     const [telInfo, setTelInfo] = useState();
     const [passInfo, setPassInfo] = useState();
-
+    const router = useRouter();
     const fnLogin = () => {
         if(telInfo === "" || passInfo === ""){
             alert("항목을 모두 입력하세요");
@@ -20,15 +20,13 @@ function Login(){
                 telInfo: telInfo
                 , passInfo: passInfo
             } 
-          }).then(res => { 
-            console.log("res", res);
-            console.log("res", res.result);
+        }).then(res => {
             if(res.data.result > 0){
-                alert("로그인되었습니다. 상윤이형 감사합니다.");
+                alert("로그인되었습니다.");
+                var url = "/search/searchMain"
+                router.push(url);
             }
-
-          })
-        
+        })
     }
 
     return (
