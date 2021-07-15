@@ -17,6 +17,7 @@ function HomeList() {
     router.push(url);
   }
 
+
   return (
     <div className={"container"}>
       <div className={searchStyles.bodyContainer}>
