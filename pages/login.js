@@ -41,7 +41,7 @@ function Login(){
             </section>
             <section className={"top-sector"}>
                 <div><span className={["fs-5"]}>비밀번호</span></div>
-                <input className={"form-control"} placeholder={"비밀번호를 입력해주세요"}
+                <input type="password" className={"form-control"} placeholder={"비밀번호를 입력해주세요"}
                 onChange={async (e) => {
                     const {value} = e.currentTarget
                     setPassInfo(value);
@@ -53,7 +53,7 @@ function Login(){
             <section className={"top-sector"}>
                 
                 <button className="btnDefault" onClick={fnLogin}>로그인</button>
-                <button className="btnActive">비밀번호</button>
+                <button className="btnActive">비밀번호 찾기</button>
             </section>
         </div>
     );
