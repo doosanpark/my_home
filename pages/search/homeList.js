@@ -15,7 +15,7 @@ function HomeList() {
     const result = [];
     axios({
       method: 'post',
-      url: 'http://localhost:8080/api/search/list',
+      url: 'http://localhost:3001/api/search/list',
       data: {
         keyword: searchKeyword
       }
