@@ -31,18 +31,19 @@ function HomeList() {
           liItem = []
         liItem.push(
           <li className={["list-group-item", "col-4"].join(" ")}>
-            <div className={"text-center"} style={innerStyles.listContainer} onClick={() => {location.href = list[i].url}} style={{cursor: "pointer"}}>
-              <div>
-                <div>
-                  <img src={"/images/home.jpg"} style={{ width: "100px" }} />
-                </div>
+            <div>
+              <div className={"text-center"}>
+                <img src={`${list[i].thumbnailImagePath}`} style={{ width: "200px" }} />
               </div>
-              <div style={innerStyles.contentContainer}>
+            </div>
+            <div className={"text-left"} style={innerStyles.listContainer} onClick={() => {window.open(list[i].linkUrl)}} style={{cursor: "pointer"}}>
+              <div>
                 <div style={{ fontSize: "20px", fontWeight: "bold" }}>
-                  {`${list[i].name}`}
+                  {`${list[i].subject}`}
                 </div>
-                <div>{`집 목록 ${list[i].id} 설명 1`}</div>
-                <div>{`집 목록 ${list[i].id} 설명 2`}</div>
+                <div className={["text-primary", "fs-6", "fw-bold"].join(" ")}>{`매매 : ${list[i].price}`}</div>
+                <div>{`${list[i].floor}, ${list[i].area}`}</div>
+                <div>{`${list[i].summary}`}</div>
               </div>
             </div>
           </li>
@@ -109,11 +110,6 @@ const innerStyles = {
     position: "relative",
   },
   imageContainer: { width: "50%", display: "inline-block" },
-  contentContainer: {
-    width: "50%",
-    display: "inline-block",
-    verticalAlign: "super",
-  },
   centerAlign: {
     textAlign: "center"   
   }
