@@ -33,7 +33,7 @@ function HomeList() {
           <li className={["list-group-item", "col-4"].join(" ")}>
             <div>
               <div className={"text-center"}>
-                <img src={`${list[i].thumbnailImagePath}`} style={{ width: "200px" }} />
+                <img src={`${list[i].thumbnailImagePath}`} style={{ height: "200px" }} />
               </div>
             </div>
             <div className={"text-left"} style={innerStyles.listContainer} onClick={() => {window.open(list[i].linkUrl)}} style={{cursor: "pointer"}}>
