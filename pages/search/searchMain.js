@@ -58,7 +58,9 @@ function HomeList() {
         <button className={["btn", "btn-secondary", "me-2"].join(" ")}>
           {"우리집"}
         </button>
-        <button className={["btn", "btn-secondary", "me-2"].join(" ")}>
+        <button className={["btn", "btn-secondary", "me-2"].join(" ")} onClick={() => {
+          location.href = "/search/homeRegister";
+        }}>
           {"우리집 내놓기"}
         </button>
         <button className={["btn", "btn-secondary"].join(" ")}>{"내정보"}</button>
